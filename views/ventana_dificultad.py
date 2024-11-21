@@ -1,5 +1,8 @@
 import tkinter as tk
 import customtkinter
+from dificultades.principiante import Principiante
+from dificultades.amateur import Amateur
+from dificultades.experto import Experto
 
 class Ventana_Dificultad(customtkinter.CTkToplevel):
     def __init__(self):
@@ -56,7 +59,8 @@ class Ventana_Dificultad(customtkinter.CTkToplevel):
             fg_color="#242424",
             border_color="#701ef7",
             border_width=2,
-            hover_color="#701ef7"
+            hover_color="#701ef7",
+            command=self.iniciar_dificultad_principiante
             
             )
         self.BPrincipiante.place(x=195 ,y=190, anchor=tk.CENTER)
@@ -71,7 +75,8 @@ class Ventana_Dificultad(customtkinter.CTkToplevel):
             fg_color="#242424",
             border_color="#3fdee6",
             border_width=2,
-            hover_color="#3fdee6"
+            hover_color="#3fdee6",
+            command=self.iniciar_dificultad_amateur
             
             )
         self.BAmateur.place(x=195 ,y=250, anchor=tk.CENTER)
@@ -86,19 +91,23 @@ class Ventana_Dificultad(customtkinter.CTkToplevel):
             fg_color="#242424",
             border_color="#249543",
             border_width=2,
-            hover_color="#249543"
+            hover_color="#249543",
+            command=self.iniciar_dificultad_experto
             
             )
         self.BExperto.place(x=195 ,y=310, anchor=tk.CENTER)
         
         
     def iniciar_dificultad_principiante(self):
-        pass
+        self.juego = Principiante(self)
+        print("Se esta jugando en principiante")
     
     def iniciar_dificultad_amateur(self):
-        pass
+        self.juego = Amateur(self)
+        print("Se esta jugando en Amateur")
     
     def iniciar_dificultad_experto(self):
-        pass
+        self.juego = Experto(self)
+        print("Se esta jugando en Experto")
     
     
