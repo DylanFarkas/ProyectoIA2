@@ -57,9 +57,9 @@ class Ventana_Dificultad(customtkinter.CTkToplevel):
             text="Principiante",
             font=("", 20, "bold"),
             fg_color="#242424",
-            border_color="#701ef7",
+            border_color="#87ff29",
             border_width=2,
-            hover_color="#701ef7",
+            hover_color="#87ff29",
             command=self.iniciar_dificultad_principiante
             
             )
@@ -89,9 +89,9 @@ class Ventana_Dificultad(customtkinter.CTkToplevel):
             text="Experto",
             font=("", 20, "bold"),
             fg_color="#242424",
-            border_color="#249543",
+            border_color="#ff0000",
             border_width=2,
-            hover_color="#249543",
+            hover_color="#ff0000",
             command=self.iniciar_dificultad_experto
             
             )

@@ -1,4 +1,5 @@
 import tkinter as tk
+import customtkinter
 import numpy as np
 from PIL import Image, ImageTk
 
@@ -6,10 +7,10 @@ class Tablero:
     def __init__(self, master):
         self.master = master
         self.master.title("Smart Horses")
-        self.master.geometry("400x400")
+        self.master.geometry("400x500")
 
         self.canvas = tk.Canvas(self.master, width=400, height=400)
-        self.canvas.pack()
+        self.canvas.place(x=0 ,y=0)
 
         self.img_caballoB = Image.open("resources/imgs/caballo_blanco.png")  
         self.img_caballoN = Image.open("resources/imgs/caballo_negro.png") 
@@ -24,11 +25,11 @@ class Tablero:
         self.img_x2 = ImageTk.PhotoImage(self.img_x2)
 
         self.tablero = np.zeros((8, 8), dtype=int)
-
+        
         self.generar_entorno()
-
         self.crear_tablero()
-
+        self.iniciar_componentes()
+        
     def crear_tablero(self):
         cell_size = 50
         
@@ -106,3 +107,24 @@ class Tablero:
 
     def obtener_tablero(self):
         return self.tablero
+         
+    def iniciar_componentes(self):
+         #Boton de Jugar
+        self.BJugar = customtkinter.CTkButton(
+            master=self.master,
+            width=120,
+            height=20,
+            corner_radius=10,
+            text="Jugar",
+            font=("", 25, "bold"),
+            fg_color=("#1F6CA7"),
+            bg_color=("#242424"),
+            hover_color="lightblue",
+            command=self.iniciar_juego
+            
+            )
+        self.BJugar.place(x=30, y=430)
+        
+        
+    def iniciar_juego(self):
+        print("Juego iniciado")
